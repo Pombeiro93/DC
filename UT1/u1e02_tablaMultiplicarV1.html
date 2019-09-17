@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e02_David_Palomero</title>
+</head>
+<body>
+    <p id="tabla"></p>
+    <script>
+        var respuesta = prompt("Introduce un numero");
+        var cadena = "";
+        for(var i = 1; i <= 10; i++){
+           cadena += respuesta + "x" + i + "=" + respuesta * i + "<br>";
+        }
+        document.getElementById("tabla").innerHTML = cadena;
+    </script>
+    
+</body>
+</html>

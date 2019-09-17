@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e03_David_Palomero</title>
+</head>
+<body>
+    <script>
+        var n = prompt("Introduce un numero");
+        var cadena = "";
+        if (n < 0){
+            cadena = "El numero introducido no puede ser menor que 0";
+        } else if (n >= 0 && n <= 12){
+            cadena = "Niño";
+        } else if (n >= 13 && n <= 26){
+            cadena = "Joven";
+        } else if (n >= 26 && n <= 60){
+            cadena = "Adulto";
+        } else if (n >= 61){
+            cadena = "Jubilado";
+        }
+        document.write(cadena);
+    </script>
+</body>
+</html>

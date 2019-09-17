@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e04_David_Palomero</title>
+</head>
+<body>
+    <script>
+        var valido = false;
+        var cadena = "";
+        do{
+            var figura = prompt("¿Que figura desea calcular? S(cuadrado), T(triangulo) o C(circulo)")
+            if (figura == "S"){
+                var lado = prompt("¿Cual es la longitud del lado?");
+                
+                cadena = "CUADRADO <br>"
+                cadena += "lado: " + lado + "cm <br>";
+                cadena += "area: " + lado*lado + "cm2 <br>";
+                cadena += "perimetro " + lado*4 + "cm";
+                valido = true;
+            }
+            if (figura == "T"){
+                var base = prompt("¿Cual es la longitud de la base?");
+                var altura = prompt("¿Cual es la longitud de la base?");
+                
+                cadena += "TRIANGULO <br>"
+                cadena += "base: " + base + "cm <br>";
+                cadena += "altura: " + altura + "cm <br>";
+                cadena += "area: " + base*altura/2 + "cm2";
+                valido = true;
+            }
+            if (figura == "C"){
+                var radio = prompt("¿Cual es la longitud del radio?");
+
+                cadena = "CIRCULO <br>"
+                cadena += "radio: " + radio + "cm <br>";
+                cadena += "area: " + Math.PI*radio*radio + "cm2 <br>";
+                cadena += "perimetro: " + 2*Math.PI*radio + "cm";
+                valido = true;
+            }
+        }while(valido == false);
+        document.write(cadena);
+    </script>
+</body>
+</html>
