@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e08_David_Palomero</title>
+</head>
+<body>
+    
+    <script>
+        var correcto = false;
+        do{
+            var nombre = prompt("¿Cuál fue el primer presidente de la democracia española?");
+            
+            if(nombre == "Adolfo"){
+                alert("Te falta el apellido. ¿Cuál fue el primer presidente de la democracia española?");
+
+            } else if(nombre == "Suarez"){
+                alert("Te falta el nombre. ¿Cuál fue el primer presidente de la democracia española?");
+
+            } else if(nombre == "Adolfo Suarez"){
+                document.write("Correcto. Es Adolfo Suarez");
+                correcto = true;
+
+            } else {
+                alert("ERROR. Inténtelo de nuevo. ¿Cuál fue el primer presidente de la democracia española?");
+            }
+        }while(correcto == false);
+    </script>
+</body>
+</html>

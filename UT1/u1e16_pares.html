@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e16_David_Palomero</title>
+</head>
+<body>
+    <script>
+        var n = prompt("Escribe un numero para saber si es par");
+        var cadena = "";
+        function esPar(a){
+            var par = false;
+            if(a % 2 == 0){
+                par = true;
+            }
+            return par;
+        }
+        if(esPar(n) == true){
+            cadena = "El numero " + n + " es Par";
+        } else {
+            cadena = "El numero " + n + " es Impar";
+        }
+        document.write(cadena);
+    </script>
+</body>
+</html>

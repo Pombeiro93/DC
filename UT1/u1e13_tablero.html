@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e13_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var n = prompt("Elije un numero");
+        var cadena = "";
+        for (var f = 1; f <= n; f++) {
+            if (f % 2 == 0) {
+                for (let c = 1; c <= n; c++) {
+                    if (c % 2 == 0) {
+                        cadena += "#";
+                    } else {
+                        cadena += " ";
+                    }
+                }
+            } else {
+                for (let c = 1; c <= n; c++) {
+                    if (c % 2 == 0) {
+                        cadena += " ";
+                    } else {
+                        cadena += "#";
+                    }
+                }
+            }
+            cadena += "\n";
+        }
+        console.log(cadena)
+    </script>
+</body>
+
+</html>
