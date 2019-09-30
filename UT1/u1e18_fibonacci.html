@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e18_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var numero1 = prompt("Un numero para Iterativa");
+
+        function fiboIter(a) {
+            cadena = "0 1";
+            var n1 = 0;
+            var n2 = 1;
+            var n3 = 0;
+            if (a == 0) {
+                cadena = "0";
+            } else {
+                for (let i = 0; i < a - 1; i++) {
+                    n3 = n1 + n2;
+                    n1 = n2;
+                    n2 = n3;
+                    cadena += " " + n3;
+                }
+            }
+            return cadena;
+        }
+        document.write(fiboIter(numero1) + "<br>");
+
+        var numero2 = prompt("Un numero para recursiva");
+
+        function fiboRecur(a) {
+            if (a == 0) {
+                return 0;
+            } else if (a == 1) {
+                return 1;
+            } else {
+                return fiboRecur(a - 1) + fiboRecur(a - 2);
+            }
+        }
+        var cadena2 = "";
+        for (let i = 0; i <= numero2; i++) {
+            cadena2 += fiboRecur(i) + " ";
+        }
+        document.write(cadena2);
+    </script>
+</body>
+
+</html>

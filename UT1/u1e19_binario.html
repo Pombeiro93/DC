@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e19_David_Palomero</title>
+</head>
+
+<body>
+    <p id="pipo"></p>
+    
+    <script>
+        var n = prompt("Escribe un numero");
+
+        function invertir(cadena) {
+            var x = cadena.length;
+            var cadenaInvertida = "";
+
+            while (x >= 0) {
+                cadenaInvertida = cadenaInvertida + cadena.charAt(x);
+                x--;
+            }
+            return cadenaInvertida;
+        }
+
+        function binario(numero) {
+            var cadena = "";
+            var final = "";
+            if (numero == 0 || numero == 1) {
+                cadena = numero
+            } else {
+                while (numero != 0 && numero != 1) {
+                    if (numero == 3) {
+                        cadena += 1 + " " + 1;
+                        numero = 0;
+                    } else if (numero == 2) {
+                        cadena += 0 + " " + 1;
+                        numero = 0;
+                    } else {
+                        cadena += numero % 2 + " ";
+                        numero = parseInt(numero / 2);
+                    }
+                }
+            }
+            final = invertir(cadena);
+            return final;
+        }
+
+        document.getElementById("pipo").innerHTML = "El binario de " + n + " es \"" + binario(n) + "\"";
+    </script>
+</body>
+
+</html>
