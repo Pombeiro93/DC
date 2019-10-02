@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e04_palindromo_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var cadena = prompt("Introduzca un palindromo");
+
+        function invertir(cadena) {
+            var i = cadena.length;
+            var cadenaInvertida = "";
+
+            while (i >= 0) {
+                cadenaInvertida = cadenaInvertida + cadena.charAt(i);
+                i--;
+            }
+            return cadenaInvertida;
+        }
+
+        function palindromo(a){
+            var cadenaF = a.trim().replace(/\s+/gi, "").toLowerCase();
+            var cadenaIn = invertir(a.trim().replace(/\s+/gi, "").toLowerCase());
+            if (cadenaF == cadenaIn){
+                return "La cadena " + a + " si es un palindromo"
+            } else {
+                return "La cadena " + a + " no es un palindromo"
+            }
+        }
+
+        document.write(palindromo(cadena));
+    </script>
+</body>
+
+</html>

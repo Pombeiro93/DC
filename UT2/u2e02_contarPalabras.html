@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e02_contarPalabras_David_Palomero</title>
+</head>
+<body>
+    <script>
+        var cadena = prompt("Introduzca una cadena con espacios");
+        var cadenaF = cadena;
+        var palabras = 0;
+        if(cadena != ""){
+            cadenaF = cadenaF.trim();
+            cadenaF = cadenaF.replace(/\s+/gi, ' ');
+            cadenaF = cadenaF.split(" ");
+            palabras = cadenaF.length;
+        } else {
+            Cadena = "No ha introducido una cadena";
+        }
+
+        document.write("Hay " + palabras + " en la cadena " + cadena);
+    </script>
+</body>
+</html>

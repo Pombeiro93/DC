@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e03_comprobarMayusculas_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var cadena = prompt("Escribe una cadena con mayusculas");
+
+        function mayus(cadenap) {
+            if (cadenap == cadenap.toUpperCase()){
+                return "La cadena esta en mayusculas";
+            } else if (cadenap == cadenap.toLowerCase()){
+                return "La cadena esta en minusculas";
+            } else {
+                return "La cadena esta compuesta por mayusculas y minusculas";
+            }
+        }
+        document.write(mayus(cadena));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e05_nombreapellidos_David_Palomero</title>
+</head>
+
+<body>
+    <h1>Nombre y apellidos</h1>
+    <p id="nombre"></p>
+
+    <script>
+        var cadena = "";
+        var nomApe = prompt("Introduzca su nombre y apellidos").trim().replace(/\s+/gi, " ");
+        cadena += nomApe + "<br>";
+        //tamaño del nombre mas los apellidos
+        var tamaño = nomApe.replace(/\s+/gi, "").length;
+        cadena += "El tamaño es: <br>" + tamaño + "<br>";
+        //mayusculas y minusculas
+        var mayus = nomApe.toUpperCase();
+        var minus = nomApe.toLowerCase();
+        cadena += "En mayusculas: <br>" + mayus + ".<br> En minusculas: <br>" + minus + ".<br>";
+        //con formato
+        var nomArr = nomApe.split(" ");
+        cadena += "Con formato <br>"
+        for (let i = 0; i < nomArr.length; i++) {
+            if (i == 0) {
+                cadena += "Nombre: " + nomArr[i] + "<br>";;
+            } else {
+                cadena += "Apellido" + i + ": " + nomArr[i] + "<br>";
+            }
+        }
+        //nombre de usuario 1
+        var user1 = nomArr[0].toLowerCase().charAt(0) + nomArr[1].toLowerCase() +
+            nomArr[2].toLowerCase().charAt(0);
+        cadena += "Nombre de usuario1: <br>" + user1 + "<br>";
+        var user2 = nomArr[0].toLowerCase().substr(0, 3) +
+            nomArr[1].toLowerCase().substr(0, 3) +
+            nomArr[2].toLowerCase().substr(0, 3)
+        cadena += "Nombre de usuario2: <br>" + user2 + "<br>";
+        //Escribir cosas
+        document.getElementById("nombre").innerHTML = cadena;
+    </script>
+</body>
+
+</html>

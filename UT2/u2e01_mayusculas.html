@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e01_mayusculas_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var semana = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+
+        function mayus(a) {
+            for (let i = 0; i < a.length; i++) {
+                l = a[i].charAt(0);
+                dia = a[i].substr(1, a[i].length - 1);
+                document.write(l.toUpperCase() + dia + "<br>");
+            }
+        }
+
+        mayus(semana);
+    </script>
+</body>
+
+</html>
