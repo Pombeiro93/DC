@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e14_cumple_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var dia = prompt("Introduce el dia de tu cumpleaños");
+        var mes = prompt("Introduce el mes de tu cumpleaños")-1;
+        var cumpleaños = new Date(2019, mes, dia);
+        var actual = new Date();
+        if (actual.getTime() > cumpleaños.getTime()){
+            cumpleaños = new Date(2020, mes, dia);
+        }
+        document.write("Quedan " + parseInt((cumpleaños.getTime() - actual.getTime())/1000/60/60/24) + " dias<br>"); 
+        for (let i = 2020; i <= 2100; i++){
+            cumpleaños = new Date(i, mes, dia);
+            if (cumpleaños.getDay() == 0){
+                document.write(i + " ");
+            }
+        }
+    </script>
+</body>
+
+</html>

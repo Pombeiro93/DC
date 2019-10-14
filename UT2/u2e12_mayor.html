@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e12_mayor_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var num = [232, 56, 33, 878, 988, 398, 100];
+
+        function mayor(arr){
+            let aux = 0;
+            for (let i = 0; i < arr.length; i++){
+                if (arr[aux] < arr[i]){
+                    aux = i;
+                }
+            }
+            return arr[aux];
+        }
+        document.write(mayor(num));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e16_formatohoras_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        do {
+            var opcion = prompt(
+                "Introduzca un numero del 1 al 2 para distintio formatos"
+            ).trim().charAt(0);
+        } while (opcion != 1 && opcion != 2);
+        var f = new Date();
+        var c;
+        switch (opcion) {
+            case "1":
+                document.write(
+                    (f.getHours() < 10 ? "0" + f.getHours() : f.getHours())
+                    +":"+
+                    (f.getMinutes() < 10 ? "0" + f.getMinutes() : f.getMinutes())
+                    +":"+
+                    (f.getSeconds() < 10 ? "0" + f.getSeconds() : f.getSeconds())
+                );
+                break;
+            case "2":
+                let h = f.getHours();
+                let m = f.getMinutes();
+                if (f.getHours() < 13){
+                    c = " AM";
+                } else {
+                    c = " PM";
+                    h = h - 12;
+                }
+                document.write(
+                    (h < 10 ? "0" + h : h)
+                    +":"+
+                    (m < 10 ? "0" + m : m)
+                    + c
+                );
+                break;
+        }
+    </script>
+</body>
+
+</html>

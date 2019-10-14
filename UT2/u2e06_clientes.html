@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e06_clientes_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var clientes = [
+            "Cliente;Localidad;Cuota",
+            "Laura;Santander;50",
+            "Álvaro;Castro;50",
+            "Igor;Castro;60",
+            "Ivan;Santander;40",
+            "Mónica;Zamora;30",
+            "Javi;Bilbao;30",
+            "David;Bilbao;50",
+            "José Luis;Bilbao;60"
+        ];
+        do {
+            var valido = false;
+            var opcion = prompt(
+                "Elija una opcion:\n" +
+                "1. Mostrar los clientes en una tabla.\n" +
+                "2. Mostrar los clientes de una localidad especificada.\n" +
+                "3. Mostrar los clientes con una cuota mayor a la especificada."
+            ).trim().charAt(0);
+            if (opcion == 1 || opcion == 2 || opcion == 3) {
+                valido = true;
+            }
+        } while (!valido);
+
+        switch (opcion) {
+            case "1":
+                document.write(mostrarTabla(array(clientes)));
+                break;
+            case "2":
+                let localidad = prompt("Escriba una localidad");
+                document.write(mostrarTabla(porLocalidad(localidad, array(clientes))));
+                break;
+            case "3":
+                let cuota = prompt("Escriba una cuota");
+                document.write(mostrarTabla(porCuota(cuota, array(clientes))));
+                break;
+        }
+        //se le pasas una array y la transforma en una bidimensional
+        function array(clientesP) {
+            let clientes = [];
+            for (let i = 0; i < clientesP.length; i++) {
+                clientes.push(clientesP[i].split(";"));
+            }
+            return clientes;
+        }
+        //Se le pasas una array bidimensional y retorna una tabla
+        function mostrarTabla(arr) {
+            let cadena = "<table border=\"2\">";
+            for (let i = 0; i < arr.length; i++) {
+                cadena += "<tr>";
+                for (let j = 0; j < arr[i].length; j++) {
+                    if (i == 0){
+                        cadena += "<th>" + arr[i][j] + "</th>";
+                    } else {
+                        cadena += "<td>" + arr[i][j] + "</td>"
+                    }
+                }
+                cadena += "</tr>";
+            }
+            cadena += "</table>";
+            return cadena;
+        }
+        //se le pasas una array bidimensional y busca clientes de la localidad elegida
+        function porLocalidad(l, arr){
+            let clientesL = [];
+            clientesL.push(arr[0]);
+            for (let i = 0; i < arr.length; i++){
+                if (l == arr[i][1]){
+                    clientesL.push(arr[i]);
+                }
+            }
+            return clientesL;
+        }
+        function porCuota(c, arr){
+            let clientesC = [];
+            clientesC.push(arr[0]);
+            for (let i = 1; i < arr.length; i++){
+                if (c < arr[i][2]){
+                    clientesC.push(arr[i]);
+                }
+            }
+            return clientesC;
+        }
+
+    </script>
+</body>
+
+</html>

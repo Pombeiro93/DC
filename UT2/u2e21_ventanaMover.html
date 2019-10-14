@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e21_ventanaMover_David_Palomero</title>
+</head>
+<body>
+    <script>
+
+        var a = window.open("", "ventana", "width= 400, height=300");
+        
+        setInterval(mover, 1000);
+        setTimeout(cerrar, 60*2*1000);
+
+        function mover(){
+            var x = parseInt(Math.random() * 400 + 1);
+            var y = parseInt(Math.random() * 300 + 1);
+            a.moveTo(x, y);
+            a.document.write(x + " x " + y + "<br>");
+        }
+        function cerrar(){
+            a.close();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e09_number_David_Palomero</title>
+</head>
+<body>
+    <script>
+        var num = new Number(prompt("Escriba un numero entero"));
+        var cadena = "";
+        cadena += num.toExponential() + "<br>";
+        cadena += num.toFixed(4) + "<br>";
+        cadena += num.toString(2) + "<br>";
+        cadena += num.toString(8) + "<br>";
+        cadena += num.toString(16) + "<br>";
+        document.write(cadena);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e22_reloj_David_Palomero</title>
+</head>
+
+<body>
+    <h1 id="fecha"></h1>
+    <script>
+
+        this.setInterval(fecha, 1000);
+
+        function fecha(){
+            var fecha = new Date();
+            var mostrarFecha = fecha.getDate() + "-" 
+                + (fecha.getMonth()+1 < 10 ? "0" + fecha.getMonth() + 1 : fecha.getMonth() + 1) + "-"
+                + fecha.getFullYear() + ";"
+                + (fecha.getHours() < 10 ? "0" + fecha.getHours() : fecha.getHours()) + ":"
+                + (fecha.getMinutes() < 10 ? "0" + fecha.getMinutes() : fecha.getMinutes()) + ":"
+                + (fecha.getSeconds() < 10 ? "0" + fecha.getSeconds() : fecha.getSeconds());
+            
+            document.getElementById("fecha").innerHTML = mostrarFecha;
+        }
+    </script>
+</body>
+
+</html>

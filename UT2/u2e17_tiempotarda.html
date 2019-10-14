@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e17_tiempotarda_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var numero1 = 8;
+        var numero2 = 8;
+        var ti;
+        var tf;
+        ti = new Date();
+        document.write(fiboIter(numero1) + "<br>");
+        tf = new Date();
+        document.write((tf - ti) + " ms");
+
+        ti = new Date();
+        var cadena2 = "";
+        for (let i = 0; i <= numero2; i++) {
+            cadena2 += fiboRecur(i) + " ";
+        }
+
+        document.write(cadena2 + "<br>");
+        tf = new Date();
+        document.write((tf - ti) + " ms");
+
+        function fiboIter(a) {
+            cadena = "0 1";
+            var n1 = 0;
+            var n2 = 1;
+            var n3 = 0;
+            if (a == 0) {
+                cadena = "0";
+            } else {
+                for (let i = 0; i < a - 1; i++) {
+                    n3 = n1 + n2;
+                    n1 = n2;
+                    n2 = n3;
+                    cadena += " " + n3;
+                }
+            }
+            return cadena;
+        }
+
+
+
+        function fiboRecur(a) {
+            if (a == 0) {
+                return 0;
+            } else if (a == 1) {
+                return 1;
+            } else {
+                return fiboRecur(a - 1) + fiboRecur(a - 2);
+            }
+        }
+    </script>
+</body>
+
+</html>

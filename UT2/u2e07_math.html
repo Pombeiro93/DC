@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e07_math_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        do {
+            var valido = false;
+            var opcion = prompt(
+                "Elija una opcion:\n" +
+                "1. Potencia\n" +
+                "2. Raiz\n" +
+                "3. Redondeo\n" +
+                "4. Trigonometria"
+            ).trim().charAt(0);
+            if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4) {
+                valido = true;
+            }
+        } while (!valido);
+
+        switch (opcion) {
+            case "1":
+                let base = prompt("Escriba una base");
+                let exp = prompt("Escriba un exponente");
+                document.write("La potencia de " + base + " elevado a " + exp + " es: "
+                    + Math.pow(base, exp));
+                break;
+            case "2":
+                let n = prompt("Escriba un numero no negativo");
+                document.write("La raíz de " + n +  "es: " + Math.sqrt(n));
+                break;
+            case "3":
+                let nDec = prompt("Escriba un numero con decimales");
+                document.write("El redondeo de " + nDec + " a la alta es: " 
+                    + Math.ceil(nDec) + " y a la baja es: " + Math.round(nDec));
+                break;
+            case "4":
+                let ang = prompt("Escriba un angulo entre 0 y 360");
+                document.write(
+                    "Seno de " + ang + " es: " + Math.sin(ang) +
+                    "<br>Coseno de " + ang + " es: " + Math.cos(ang) +
+                    "<br>Tangente de " + ang + " es: " + Math.tan(ang)
+                );
+                break;
+        }
+
+    </script>
+</body>
+
+</html>

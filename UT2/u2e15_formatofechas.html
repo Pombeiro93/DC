@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e15_formatofechas_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var diasEsp = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+        var diasIng = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var mesEsp = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        var mesIng = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        do {
+            var opcion = prompt(
+                "Introduzca un numero del 1 al 3 para distintio formatos"
+            ).trim().charAt(0);
+        } while (opcion != 1 && opcion != 2 && opcion != 3);
+        var f = new Date();
+        switch (opcion) {
+            case "1":
+                document.write(
+                    (f.getDate() < 10 ? "0" + f.getDate() : f.getDate()) +
+                    "/" + (f.getMonth() + 1 < 10 ? "0" + f.getMonth() + 1 : f.getMonth() + 1) +
+                    "/" + f.getFullYear()
+                );
+                break;
+            case "2":
+                document.write(
+                    diasEsp[f.getDay()] +
+                    ", " + f.getDate() + " de " +
+                    mesEsp[f.getMonth()] + " de " + f.getFullYear()
+                );
+                break;
+            case "3":
+                document.write(
+                    diasIng[f.getDay()] + ", " + mesIng[f.getMonth()] +
+                    " " + f.getDate() + ", " + f.getFullYear()
+                );
+                break;
+        }
+    </script>
+</body>
+
+</html>

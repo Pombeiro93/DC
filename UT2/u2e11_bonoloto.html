@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e11_bonoloto_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var numeros = [];
+        var cadena = "";
+        var n;
+        for (let i = 0; i < 6; i++) {
+            if (i == 0) {
+                numeros.push(aleatorio(1, 51));
+            } else {
+                let valido = true;
+                do {
+                    n = aleatorio(1, 51);
+                    valido = true;
+                    for (let x = 0; x < numeros.length; x++) {
+                        if (n == numeros[x]) {
+                            valido = false;
+                        }
+                    }
+                } while (!valido);
+                numeros.push(n);
+            }
+        }
+        numeros.push(aleatorio(1, 10));
+        for (let i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                cadena += "El numero complementario es: " + numeros[i];
+            } else {
+                cadena += "El numero " + i+1 + " es: " + numeros[i] + "<br>";
+            }
+        }
+        document.write(cadena);
+
+        function aleatorio(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+    </script>
+</body>
+
+</html>

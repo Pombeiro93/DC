@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e18_pestaña_David_Palomero</title>
+    <style>
+        .boton{
+            display: inline-block;
+            border: 2px blue solid;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boton" id="crear">crear</div>
+    <br>
+    <div class="boton" id="cerrar">cerrar</div>
+    <script>
+
+        document.getElementById("crear").addEventListener("click", crearVentana);
+        document.getElementById("cerrar").addEventListener("click", cerrarVentana);
+
+        var ventana;
+
+        function crearVentana() {
+            if (ventana == undefined){
+                var link = prompt("Introduzca una URL");
+                ventana = window.open(link);
+            } else {
+                alert("Ya hay una ventan abierta");
+            }
+        }
+
+        function cerrarVentana() {
+            if (ventana == undefined){
+                alert("La ventana tiene que estar abierta para poder cerrarla");
+            } else {
+                ventana.close();
+                ventana = undefined;
+            }
+        }
+    </script>
+</body>
+
+</html>

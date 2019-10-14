@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e23_locatio_David_Palomero</title>
+    <style>
+        .boton {
+            display: inline-block;
+            border: 2px black solid;
+            background: rgb(204, 202, 202);
+        }
+
+        * {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="url" type="text">
+    <p id="aceptar" class="boton" onclick="abrir()" >Aceptar</p>
+    <br>
+    <iframe name="iframe" frameborder="2"></iframe>
+    <script>
+        var link;
+        function abrir(){
+            link = document.getElementById("url").value;
+            window.open(link, "iframe");
+        };
+    </script>
+</body>
+
+</html>

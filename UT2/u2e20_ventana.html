@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e20_ventana_David_Palomero</title>
+    <style>
+        .boton {
+            display: inline-block;
+            border: 2px black solid;
+            background: rgb(204, 202, 202);
+        }
+        *{
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="boton" id="crear">Crear ventana</p>
+    <p class="boton" id="cerrar">Cerrar</p>
+    <p class="boton" id="activar">Activar</p>
+    <p class="boton" id="mover">Mover a 100 x 100</p>
+    <p class="boton" id="moverL">Mover hacia la izquierda</p>
+    <p class="boton" id="moverR">Mover hacia la derecha</p>
+    <p class="boton" id="moverU">Mover hacia la arriba</p>
+    <p class="boton" id="moverD">Mover hacia abajo</p>
+    <p class="boton" id="write">Escribir</p>
+    <p class="boton" id="restaurar">Restaurar tamaño</p>
+    <p class="boton" id="aumentar">Aumentar tamaño</p>
+    <p class="boton" id="disminuir">Disminuir tamaño</p>
+    <p class="boton" id="writeT">Escribir texto</p>
+    <p class="boton" id="down">Bajar</p>
+    <p class="boton" id="up">Subir</p>
+   
+    <script>
+        var a;
+        document.getElementById("crear").addEventListener("click", crearVentana);
+        function crearVentana() {
+            if (a != undefined)
+                a.close();
+            a = window.open("", "miVentana", "width= 200, height=100");
+        }
+
+        document.getElementById("cerrar").addEventListener("click", cerrar);
+        function cerrar() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.close();
+                a = undefined;
+            }
+        }
+
+        document.getElementById("activar").addEventListener("click", activar);
+        function activar() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.focus();
+            }
+        }
+
+        document.getElementById("mover").addEventListener("click", mover);
+        function mover() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.moveTo(100, 100);
+            }
+        }
+        
+        document.getElementById("moverL").addEventListener("click", moverIzquierda);
+        function moverIzquierda() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.moveBy(-10, 0);
+            }
+        }
+
+        document.getElementById("moverR").addEventListener("click", moverDerecha);
+        function moverDerecha() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.moveBy(10, 0);
+            }
+        }
+
+        document.getElementById("moverU").addEventListener("click", moverArriba);
+        function moverArriba() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.moveBy(0, -10);
+            }
+        }
+
+        document.getElementById("moverD").addEventListener("click", moverAbajo);
+        function moverAbajo() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.moveBy(0, 10);
+            }
+        }
+        
+        document.getElementById("write").addEventListener("click", escribir);
+        function escribir() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.document.write("Hola");
+            }
+        }
+
+        document.getElementById("restaurar").addEventListener("click", restaurarTamaño);
+        function restaurarTamaño() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.resizeTo(200, 100);
+            }
+        }
+
+        document.getElementById("aumentar").addEventListener("click", aumentarTamaño);
+        function aumentarTamaño() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.resizeBy(10, 10);
+            }
+        }
+        
+        document.getElementById("disminuir").addEventListener("click", disminuirTamaño);
+        function disminuirTamaño() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.resizeBy(-10, -10);
+            }
+        }
+
+        document.getElementById("writeT").addEventListener("click", escribirTexto);
+        function escribirTexto() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.document.write(" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet odit totam culpa soluta perspiciatis eaque cumque aperiam unde voluptas aliquid ea, quia ex ad obcaecati consectetur dolores nemo placeat neque? Quod accusamus ullam quo eligendi repudiandae similique incidunt eius architecto distinctio eos blanditiis sint iusto aliquam sequi, animi asperiores natus placeat illo itaque nobis totam debitis temporibus. Eius, tempora ullam.Quae commodi aspernatur earum rem vero fuga nostrum iure possimus itaque, aliquid fugiat. Dolorem quisquam, expedita aut delectus amet molestias praesentium consectetur, ex eum hic ipsam doloribus. Deserunt, suscipit enim.Illo optio officiis rerum neque, facere laborum vero totam eligendi distinctio libero aspernatur culpa fuga officia obcaecati, dolores, dolore in nihil repellendus ratione corporis nobis ullam. Porro magnam qui perspiciatis.Veniam deserunt, nam beatae accusamus vitae minima ullam ratione commodi, quaerat dignissimos quae at excepturi dolore, molestias illo numquam cupiditate. Eos soluta, delectus reprehenderit totam id nisi quod saepe unde.Adipisci nemo et esse exercitationem sed minus eveniet, debitis culpa perferendis, eius incidunt ea aut explicabo laborum blanditiis. Et saepe enim temporibus soluta ea explicabo iusto vel dolorum necessitatibus quasi.Ipsa blanditiis ea tempora aliquam velit et pariatur repudiandae distinctio labore? Quia tempora dolores accusamus modi ipsa aliquam repellendus commodi mollitia, laudantium tempore ducimus dicta provident? Maiores natus porro culpa!Fugit consequuntur ea pariatur. Officia impedit labore quas, provident, quae, suscipit corrupti sunt sint accusantium est similique. Deleniti dolorem ducimus quibusdam exercitationem ex laborum nihil cupiditate odio? Accusantium, tenetur voluptatum.Eaque error harum eos dicta ratione laborum facere dolor ad perferendis, veniam explicabo iusto, fuga incidunt excepturi, ducimus repellat reprehenderit adipisci suscipit. Sequi atque non aperiam quasi fugiat illum assumenda. Odit itaque laudantium fugiat animi iste, nam sit! Accusantium facere at eos omnis libero quidem beatae aut officiis autem! Cum id non impedit rem laborum quis expedita enim? Aliquam, magni.");
+            }
+        }
+
+        document.getElementById("down").addEventListener("click", bajar);
+        function bajar() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.scrollBy(0, 100);
+            }
+        }
+
+        document.getElementById("up").addEventListener("click", subir);
+        function subir() {
+            if (a == undefined) {
+                alert("ERROR, la ventana no esta abierta");
+            } else {
+                a.scrollBy(0, -100);
+            }
+        }
+    </script>
+</body>
+
+</html>

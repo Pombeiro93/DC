@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e08_circulo_David_Palomero</title>
+</head>
+<body>
+    <script>
+        var rad = prompt("Introduzca un radio");
+        var cadena = "";
+
+        cadena += "El radio es: " + rad + "cm <br>";
+        cadena += "El valor del diámetro es: " + (rad * 2) + "cm <br>";
+        cadena += "El valor del perímetro de la circunferencia es: " + (2 * Math.PI * rad) + "cm <br>";
+        cadena += "El valor del área del círculo es: " + (Math.PI * Math.pow(rad, 2)) + "cm2 <br>";
+        cadena += "El valor del área de la esfera es: " + (4 * Math.PI * Math.pow(rad, 2)) + "cm2 <br>";
+        cadena += "El valor del volumen de la esfera es: " + ((4 * Math.PI * Math.pow(rad, 3))/3) + "cm3";
+
+        document.write(cadena);
+    </script>
+</body>
+</html>
