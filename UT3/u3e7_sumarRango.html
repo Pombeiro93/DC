@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e7_sumarRango_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        function rango(ini, fin) {
+            var num = [];
+            for (let i = ini; i <= fin; i++) {
+                num.push(i);
+            }
+            return num;
+        }
+        var numeros = rango(1, 47);
+        var cadena = "";
+        for (let i = 0; i < numeros.length; i++) {
+            cadena += numeros[i] + " ";
+        }
+        document.write(
+            "<h1>Rango del 1 al 47</h1>" +
+            cadena
+        );
+
+        function suma(arr) {
+            var suma = 0;
+            for (let i = 0; i < arr.length; i++) {
+                suma += arr[i];
+            }
+            return suma;
+        }
+        document.write(
+            "<h1>Suma de todos los numeros contenidos del 1 al 47</h1>" +
+            suma(rango(1, 47))
+        );
+
+        function rango2(ini, fin) {
+            var num = [];
+            if (ini < fin) {
+                for (let i = ini; i <= fin; i = i + arguments[2]) {
+                    num.push(i);
+                }
+            } else if (ini > fin) {
+                for (let i = ini; i >= fin; i = i + arguments[2]) {
+                    num.push(i);
+                }
+            }
+            return num;
+        }
+        numeros = rango2(9, 2, -5);
+        cadena = "";
+        for (let i = 0; i < numeros.length; i++) {
+            cadena += numeros[i] + " ";
+        }
+        document.write(
+            "<h1>Rango2</h1>" +
+            cadena
+        );
+    </script>
+</body>
+
+</html>

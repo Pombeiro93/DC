@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e6_arrayNumeros_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        //creamos y rellenamos la array
+        var arr = [];
+        for (let i = 1; i <= 100; i++) {
+            arr.push(i);
+        }
+        /*
+            recibe una array de numeros
+            devuelve una cadena con los pares
+        */
+        function pares(a) {
+            var cadena = "<h1>Con for</h1>";
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] % 2 == 0) {
+                    cadena += a[i] + " ";
+                }
+            }
+            cadena += "<h1>Con for each</h1>";
+            for (let x in a) {
+                if (a[x] % 2 == 0) {
+                    cadena += a[x] + " ";
+                }
+            }
+            return cadena;
+        }
+        document.write(pares(arr));
+
+        /*recibe una array de numeros
+        devuelve la suma*/
+        function sumar(a) {
+            var cadena = "<h1>Suma</h1>";
+            var suma = 0;
+            for (let x in a) {
+                suma = suma + a[x];
+            }
+            cadena += suma;
+            return cadena;
+        }
+        document.write(sumar(arr));
+
+        /*recibe un parametro
+        borra e insterta el parametro recibido*/
+        function insertar(arr, param) {
+            arr.pop();
+            arr.push(param);
+            return arr;
+        }
+        document.write(
+            "<h1>Borra e inserta</h1>" +
+            insertar(arr, 45)[arr.length - 1]
+        );
+    </script>
+</body>
+
+</html>

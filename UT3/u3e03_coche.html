@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e03_coche_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        //Con clase
+        class CocheClass {
+            constructor(c, mar, mod) {
+                this.color = c;
+                this.marca = mar;
+                this.modelo = mod;
+                this.arrancado = false;
+            }
+
+            encenderApagar() {
+                if (!this.arrancado) {
+                    this.arrancado = true;
+                } else {
+                    this.arrancado = false;
+                }
+            }
+        }
+        var coche4 = new CocheClass("Azul", "Nissan", "R-34");
+
+        //Manera simple
+        var coche1 = {
+            color: "",
+            marca: "",
+            modelo: "",
+            arrancado: false,
+            encenderApagar() {
+                if (!this.arrancado) {
+                    this.arrancado = true;
+                } else {
+                    this.arrancado = false;
+                }
+            }
+        }
+
+        //Con Object
+        var coche2 = new Object();
+        coche2.color = "";
+        coche2.marca = "";
+        coche2.modelo = "";
+        coche2.arrancado = false;
+        coche2.encenderApagar = function () {
+            if (!this.arrancado) {
+                this.arrancado = true;
+            } else {
+                this.arrancado = false;
+            }
+        }
+
+        //Con constructor
+        var coche3 = new Coche("verde", "Fiat", "Multipla");
+        function Coche(c, mar, mod) {
+            this.color = c;
+            this.marca = mar;
+            this.modelo = mod;
+            this.arrancado = false;
+            this.encenderApagar = function () {
+                if (!this.arrancado) {
+                    this.arrancado = true;
+                } else {
+                    this.arrancado = false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

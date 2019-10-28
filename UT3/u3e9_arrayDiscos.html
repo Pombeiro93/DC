@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e9_arrayDiscos_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        var discos = [];
+
+        //menu
+        do {
+            var salir = true;
+            do {
+                var opcion = prompt(
+                    "1. Mostrar numero de discos\n" +
+                    "2. Mostrar listado de discos\n" +
+                    "3. Mostrar intervalo de discos\n" +
+                    "4. Añadir disco\n" +
+                    "5. Borrar Disco\n" +
+                    "6. Consultar disco\n" +
+                    "7. Terminar"
+                ).trim().charAt(0);
+
+            } while (opcion != 1 && opcion != 2 && opcion != 3 &&
+                opcion != 4 && opcion != 5 && opcion != 6 && opcion != 7);
+            var cadema = "";//variable para mostrar los datos
+            switch (opcion) {
+                case "1":
+                    alert("Hay " + discos.length + " discos");
+                    break;
+                case "2":
+                    do {
+                        opcion = prompt(
+                            "1. Mostrar del derecho\n" +
+                            "2. Mostrar del reves\n" +
+                            "3. Mostrar alfabeticamente"
+                        ).trim().charAt(0);
+                    } while (opcion != 1 && opcion != 2 && opcion != 3);
+                    switch (opcion) {
+                        case "1":
+                            for (let i = 0; i < discos.length; i++) {
+                                cadena += discos[i].nombre + "\n";
+                            }
+                            alert(cadena);
+                            break;
+                        case "2":
+                            
+                            break;
+                        case "3":
+
+                            break;
+                    }
+                    break;
+                case "3":
+
+                    break;
+                case "4":
+
+                    break;
+                case "5":
+
+                    break;
+                case "6":
+
+                    break;
+                case "7":
+                    salir = false;
+                    break;
+            }
+        } while (salir);
+
+        //objeto disco
+        function Disco(n, g, a, t, l = 0) {
+            this.nombre = n || "";
+            this.grupo = g || "";
+            this.año = a || "";
+            this.tipo = t;
+            this.loc = l;
+            this.prestado = false;
+
+            this.setLocalizacion = function (l) {
+                this.loc = l;
+            }
+            this.prestar = function (n) {
+                var p = "";
+                if (n == 3) {
+                    if (this.prestado) {
+                        p = "El disco ya esta prestado";
+                    } else {
+                        p = "El disco a sido prestado correctamente";
+                        this.prestado = true;
+                    }
+                    if (n == 4) {
+                        if (this.prestado) {
+                            p = "El disco se ha devuelto correctamente";
+                            this.prestado = false;
+                        } else {
+                            p = "El disco ya se devolvio";
+                        }
+                        return p;
+                    }
+                }
+            }
+
+            this.mostrar = function () {
+                var c = "INFO DEL DISCO" +
+                    "\nNombre: " + this.nombre +
+                    "\nGrupo: " + this.grupo +
+                    "\nAño: " + this.año +
+                    "\nGenero: " + this.tipo +
+                    "\nEstanteria: " + this.loc +
+                    "\nPrestado: " + (this.prestado ? "No disponible" : "Disponible");
+                return c;
+            }
+        }
+    </script>
+</body>
+
+</html>

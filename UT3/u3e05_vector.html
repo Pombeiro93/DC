@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e05_vector_David_Palomero</title>
+</head>
+<body>
+    <script>
+        function Vector(x, y){
+            this.x = x;
+            this.y = y;
+            this.longitud = Math.sqrt(Math.pow(this.x, 2)+Math.pow(this.y, 2));
+
+            this.sumar = function(v){
+                this.x = this.x + v.x;
+                this.y = this.y + v.y;
+                return this.x + ", " + this.y;
+            }
+            this.restar = function(v){
+                this.x = this.x - v.x;
+                this.y = this.y - v.y;
+                return this.x + ", " + this.y;
+            }
+        }
+        console.log(new Vector(1, 2).sumar(new Vector(2, 3)));
+        console.log(new Vector(1, 2).restar(new Vector(2, 3)));
+        console.log(new Vector(3, 4).longitud);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u3e8_arrayReverse_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        function reverseArray(a) {
+            var invertida = a.slice();
+            return invertida.reverse();
+        }
+
+        function reverseArray2(a) {
+            var invertida = [];
+            for (let i = a.length-1; i >= 0; i--) {
+                invertida.push(a[i]);
+            }
+            return invertida;
+        }
+
+        var num = [];
+        for (let i = 1; i <= 10; i++) {
+            num.push(i);
+        }
+
+        var inver = reverseArray(num);
+        var inver2 = reverseArray2(num);
+        var mostrarA = "";
+        for (let i = 0; i < num.length; i++) {
+            mostrarA += num[i] + " ";
+        }
+        document.write(
+            "<h1>Normal</h1>" +
+            mostrarA
+        );
+        mostrarA = "";
+        for (let i = 0; i < inver.length; i++) {
+            mostrarA += inver[i] + " ";
+        }
+        document.write(
+            "<h1>Invertida</h1>" +
+            mostrarA
+        );
+        mostrarA = "";
+        for (let i = 0; i < inver2.length; i++) {
+            mostrarA += inver2[i] + " ";
+        }
+        document.write(
+            "<h1>Invertida2</h1>" +
+            mostrarA
+        );
+    </script>
+</body>
+
+</html>
