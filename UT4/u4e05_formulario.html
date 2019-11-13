@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u4e05_formulario_David_Palomero</title>
+    <style>
+        input,
+        select {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="discos">
+        <label>Nombre del disco</label>
+        <input id="nombre" name="nombre" type="text">
+        <label>Grupo de musica o cantante</label>
+        <input id="grupo" type="text">
+        <label>Año de publicacion</label>
+        <input id="año" type="text">
+        <label>Tipo de musica</label>
+        <select id="tipo" name="tipo">
+            <option value="rock">rock</option>
+            <option value="pop">pop</option>
+            <option value="punk">punk</option>
+            <option value="indie">indie</option>
+        </select>
+        <label>localizacion</label>
+        <input type="number" name="localizacion" id="localizacion">
+        <label>Prestado</label>
+        <select id="prestado" name="prestado">
+            <option value="false">No</option>
+            <option value="true">Si</option>
+        </select>
+        <input type="submit" id="guardar" value="Guardar">
+    </form>
+
+    <script>
+        var discos = [];
+
+        document.addEventListener("DOMContentLoaded", iniciar);
+
+        function iniciar() {
+            document.getElementById("guardar").addEventListener("click", validar);
+        }
+
+        function validar(e) {
+            e.preventDefault();
+            var nombre = document.getElementById('nombre');
+            var grupo = document.getElementById('grupo');
+            var año = document.getElementById('año');
+            var tipo = document.getElementById('tipo');
+            var loc = document.getElementById('localizacion');
+            var prestado = document.getElementById('prestado');
+
+
+            var expNom = new RegExp('[a-zA-Z]{20}');
+            var expAño = new RegExp('[0-9]{4}');
+
+            var valido = false;
+
+            //validar nombre
+            if (!expNom.test(nombre.value)) {
+                nombre.style.borderColor = "red";
+                valido = false;
+            } else {
+                nombre.style.borderColor = "green";
+                valido = true;
+            }
+            //validad grupo
+            if (!expNom.test(grupo.value)) {
+                grupo.style.borderColor = "red";
+                valido = false;
+            } else {
+                grupo.style.borderColor = "green";
+                valido = true;
+            }
+            //validar año
+            if (!expAño.test(año.value)) {
+                año.style.borderColor = "red";
+                valido = false;
+            } else {
+                año.style.borderColor = "green";
+                valido = true;
+            }
+
+            if (valido) {
+                discos.push(new Disco(
+                    nombre.value, grupo.value, 
+                    año.value, tipo.value, 
+                    loc.value, prestado.value
+                ));
+            }
+        }
+
+        //crear el disco
+        function Disco(n, g, a, t, l = 0, p) {
+            this.nombre = n || "";
+            this.grupo = g || "";
+            this.año = a || "";
+            this.tipo = t;
+            this.loc = l;
+            this.prestado = p;
+
+            this.setLocalizacion = function (l) {
+                this.loc = l;
+            }
+            this.prestar = function (n) {
+                var p = "";
+                if (n == 3) {
+                    if (this.prestado) {
+                        p = "El disco ya esta prestado";
+                    } else {
+                        p = "El disco a sido prestado correctamente";
+                        this.prestado = true;
+                    }
+                    if (n == 4) {
+                        if (this.prestado) {
+                            p = "El disco se ha devuelto correctamente";
+                            this.prestado = false;
+                        } else {
+                            p = "El disco ya se devolvio";
+                        }
+                        return p;
+                    }
+                }
+            }
+
+            this.mostrar = function () {
+                var c = "INFO DEL DISCO" +
+                    "\nNombre: " + this.nombre +
+                    "\nGrupo: " + this.grupo +
+                    "\nAño: " + this.año +
+                    "\nGenero: " + this.tipo +
+                    "\nEstanteria: " + this.loc +
+                    "\nPrestado: " + (this.prestado ? "No disponible" : "Disponible");
+                return c;
+            }
+        }
+    </script>
+</body>
+
+</html>

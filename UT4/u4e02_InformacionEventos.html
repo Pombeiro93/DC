@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Ejercicio tomado de https://www.arkaitzgarro.com/javascript/snippets/cap18/ej18.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u4e02_InformacionEventos_David_Palomero</title>
+</head>
+
+<body>
+
+    <div id="raton" class="box">
+        <h1>Ratón</h1>
+        <div></div>
+    </div>
+    <div id="teclado" class="box">
+        <h1>Teclado</h1>
+        <div></div>
+    </div>
+    <script>
+        //anadimos los eventos que queremos
+        document.addEventListener("mousemove", muestraInformacion);
+        document.addEventListener("keydown", muestraInformacion);
+        document.addEventListener("click", muestraInformacion);
+
+        //hacemos una funcion para los ejecutar los eventos anteriormente creados
+        function muestraInformacion(e) {
+            //creamos punteros a los div
+            var raton = document.getElementById('raton');
+            var teclado = document.getElementById('teclado');
+
+            if (e.type == "mousemove") {//evento de mover el raton
+                document.querySelector("#raton>div").innerHTML = "Navegador [" + e.clientX + ", " + e.clientY + "]\n" + "Pagina [" + e.pageX + ", " + e.pageY + "]";
+                //cambiar de color
+                raton.style.backgroundColor = "white";
+                teclado.style.backgroundColor = "white";
+            } else if (e.type == "keydown") {//evento al presionar teclado
+                document.querySelector("#teclado>div").innerHTML = "Caracter [" + e.key + "]\n Codigo [" + e.code + "]";
+                //cambiar de color
+                teclado.style.backgroundColor = "#CCE6FF";
+            } else if (e.type == "click") {//evento al hacer click en el raton
+                raton.style.backgroundColor = "#FFFFCC";
+            }
+        }
+    </script>
+</body>
+
+</html>

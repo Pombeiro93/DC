@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>u4e01_aplicarEventos_David_Palomero</title>
+	<!-- Ejercicio tomado de https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html -->
+	<style>
+		
+	</style>
+</head>
+
+<body>
+	<script>
+		function ocultar(id) {
+			event.preventDefault();//hace lo mismo que return false
+			parrafo = document.getElementById(id);
+			//parrafo.previo(buscar)
+			if (parrafo.style.display == "block") {
+				parrafo.style.display = "none";
+				document.querySelector("#"+id+">a").innerHTML = "Mostrar contenido";
+			} else {
+				parrafo.style.display = "block";
+				document.querySelector("#"+id+">a").innerHTML = "Ocultar contenido";
+			}
+		}
+
+
+	</script>
+	<div>
+		<p id="primero" style="display: block;">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+			Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+			vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+			pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+			ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+			posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</p>
+		<a href="https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html#" onclick="ocultar('primero');">Ocultar contenidos</a>
+	</div>
+	<br>
+	<div>
+		<p id="segundo" style="display: block;">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+			Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+			vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+			pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+			ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+			posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</p>
+		<a href="https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html#"  onclick="ocultar('segundo');">Ocultar contenidos</a>
+	</div>
+	<br>
+	<div>
+		<p id="tercero" style="display: block;">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+			Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+			vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+			pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+			ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+			posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</p>
+		<a href="https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html#"  onclick="ocultar('tercero');">Ocultar contenidos</a>
+	</div>
+</body>
+
+</html>
