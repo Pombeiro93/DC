@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e11_colores_David_Palomero</title>
+    <style>
+        td {
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Elige un color</h1>
+    <table id="opcion">
+        <tr>
+            <td>B71C1C</td>
+            <td>880E4F</td>
+            <td>4A148C</td>
+            <td>311B92</td>
+            <td>1A237E</td>
+        </tr>
+        <tr>
+            <td>0D47A1</td>
+            <td>01579B</td>
+            <td>006064</td>
+            <td>004D40</td>
+            <td>1B5E20</td>
+        </tr>
+        <tr>
+            <td>33691E</td>
+            <td>827717</td>
+            <td>F57F17</td>
+            <td>FF6F00</td>
+            <td>E65100</td>
+        </tr>
+        <tr>
+            <td>BF360C</td>
+            <td>3E2723</td>
+            <td>212121</td>
+            <td>263238</td>
+            <td>424242</td>
+        </tr>
+        <tr>
+            <td>CCFFFF</td>
+            <td>CC00FF</td>
+            <td>6633FF</td>
+            <td>66FFFF</td>
+            <td>0000FF</td>
+        </tr>
+    </table>
+    <table id="resultado">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", añadirEvento);
+
+        function añadirEvento() {
+            var colores = document.querySelectorAll("#opcion td");
+
+            colores.forEach(function (x) {
+                x.addEventListener("click", color);
+                x.style.backgroundColor = "#" + x.textContent;
+                x.style.color = "#" + x.textContent;
+            });
+        }
+
+        function color(e) {
+            var resultado = document.querySelectorAll("#resultado td");
+            var color = e.target;
+            
+            resultado[0].style.backgroundColor = "#" + color.textContent;
+            resultado[1].textContent = color.textContent;
+        }
+    </script>
+</body>
+
+</html>
