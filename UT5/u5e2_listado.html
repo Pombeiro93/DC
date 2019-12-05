@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e2_listado_David_Palomero</title>
+</head>
+
+<body>
+    <form>
+        <input type="submit" value="Añadir">
+        <input type="submit" value="Borrar Primero">
+        <input type="submit" value="Borrar Ultimo">
+    </form>
+    <ul id="lista"></ul>
+
+    <script>
+        document.querySelectorAll("input").forEach(function (x) {
+            x.addEventListener("click", funcion);
+        });
+
+        function funcion(e) {
+            e.preventDefault();
+            var elemento = e.target;
+            var lista = document.querySelector("ul");
+            var elementoLista = document.querySelectorAll("li");
+
+            //añadir elementos a la lista
+            if (elemento.value == "Añadir") {
+                var texto = prompt("Introduzca un texto");
+                var eLista = document.createElement("li");
+                eLista.textContent = texto;
+                lista.appendChild(eLista);
+            }
+
+            //borrar primer elemento de la lista
+            if (elemento.value == "Borrar Primero") {
+                if (elementoLista.length > 0) {
+                    elementoLista[0].remove();
+                } else {
+                    alert("Error: No hay elementos a borrar en la lista");
+                }
+            }
+
+            //borrar ultimo elemento de la lista
+            if (elemento.value == "Borrar Ultimo") {
+                if (elementoLista.length > 0) {
+                    elementoLista[elementoLista.length-1].remove();
+                } else {
+                    alert("Error: No hay elementos a borrar en la lista");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

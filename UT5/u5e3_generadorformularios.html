@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e3_generadorformularios_David_Palomero</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><input type="button" value="inputTexto"></td>
+            <td><input type="button" value="inputPassword"></td>
+            <td><input type="button" value="textArea"></td>
+            <td><input type="button" value="label"></td>
+            <td><input type="button" value="imagen"></td>
+            <td><input type="button" value="checkBox"></td>
+            <td><input type="button" value="radio"></td>
+            <td><input type="button" value="boton"></td>
+        </tr>
+    </table>
+    <form></form>
+    <script>
+        document.querySelectorAll("input").forEach(function (x) {
+            x.addEventListener("click", accionBotones);
+        });
+
+        function accionBotones(e) {
+            e.preventDefault()
+            var boton = e.target;
+            var formulario = document.querySelector("form");
+
+            switch (boton.value) {
+                case "inputTexto":
+                    crearInput(formulario, "text");
+                    break;
+                case "inputPassword":
+                    crearInput(formulario, "password");
+                    break;
+                case "textArea":
+                    crearAreaTexto(formulario);
+                    break;
+                case "label":
+                    if (formulario.querySelectorAll("input").length > 0) {
+                        crearLabel(formulario);
+                    } else {
+                        alert("No hay inputs para asignar el label");
+                    }
+                    break;
+                case "imagen":
+                    crearImg(formulario);
+                    break;
+                case "checkBox":
+                    crearInput(formulario, "checkbox")
+                    break;
+                case "radio":
+                    crearInput(formulario, "radio")
+                    break;
+                case "boton":
+                    crearBoton(formulario);
+                    break;
+            }
+        }
+
+        function crearInput(formulario, tipo) {
+            var nombre = prompt("Introduzca un nombre");
+            var elemento = document.createElement("input");
+            if (tipo == "checkbox" || tipo == "radio") {
+                var valor = prompt("Introduzca el valor");
+                elemento.value = valor;
+            }
+            elemento.type = tipo;
+            elemento.id = nombre;
+            elemento.name = nombre;
+            formulario.appendChild(elemento);
+        }
+
+        function crearAreaTexto(formulario) {
+            var nombre = prompt("Introduzca un nombre");
+            var textArea = document.createElement("textarea");
+            textArea.name = nombre;
+            textArea.rows = "5";
+            textArea.cols = "40";
+            formulario.appendChild(textArea);
+        }
+
+        function crearLabel(formulario) {
+            var referencia = prompt("Introduce a que input va referido");
+            var label = document.createElement("label");
+            label.setAttribute("for", referencia);
+            label.textContent = prompt("Introduce el contenido del label");
+            formulario.appendChild(label);
+        }
+
+        function crearImg(formulario) {
+            var ruta = prompt("Esctiba la ruta");
+            var img = document.createElement("img");
+            img.src = ruta;
+            formulario.appendChild(img);
+        }
+
+        function crearBoton(formulario){
+            var nombre = prompt("Introduzca un nombre");
+            var valor = prompt("Introduzca el valor");
+            var boton = document.createElement("button");
+            boton.name = nombre;
+            boton.value = valor;
+            boton.textContent = valor;
+            formulario.appendChild(boton);
+        }
+
+    </script>
+</body>
+
+</html>

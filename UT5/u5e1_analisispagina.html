@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e1_analisispagina_David_Palomero</title>
+</head>
+
+<body>
+    <div>
+        <p>Ir a: <a href="https://www.google.es/">Google</a> o a <a href="https://www.bing.com/?setlang=es">Bing</a></p>
+        <p>Ir a: <a href="https://es.wikipedia.org/wiki/JavaScript">Wikipedia JavaScript</a></p>
+        <p>Ir a: <a href="/wiki/Municipio">Wikipedia JavaScript</a></p>
+    </div>
+    <div>
+        <h2>Información de la página:</h2>
+        <div id="info"></div>
+    </div>
+    <script>
+        /*
+            El número de párrafos de la página.
+            El texto del segundo párrafo.
+            El número de enlaces de la página.
+            La dirección del primer enlace.
+            La dirección del penúltimo enlace.
+            El número de enlaces que apuntan a /wiki/Municipio
+            El número de enlaces del primer párrafo.
+
+        */
+        document.getElementById("info").innerHTML = "" +
+            "El número de párrafos de la página: " + document.querySelectorAll("p").length + "<br>" +
+            "El texto del segundo párrafo: "+ document.querySelectorAll("p")[1].textContent + "<br>" +
+            "El número de enlaces de la página: " + document.querySelectorAll("a").length + "<br>" +
+            "La dirección del primer enlace: " + document.querySelectorAll("a")[0].href.valueOf() + "<br>" +
+            "La dirección del penúltimo enlace: " + document.querySelectorAll("a")[document.querySelectorAll("a").length-2].href.valueOf() + "<br>" +
+            "El número de enlaces que apuntan a /wiki/Municipio: " + document.querySelectorAll("a[href='/wiki/Municipio']").length + "<br>" +
+            "El número de enlaces del primer párrafo: " + document.querySelectorAll("p")[0].querySelectorAll("a").length;
+    </script>
+</body>
+
+</html>
