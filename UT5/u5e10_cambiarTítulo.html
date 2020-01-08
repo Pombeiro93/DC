@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e10_cambiarTítulo_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", titulo);
+
+        function titulo() {
+            var titulo = document.querySelector("title");
+            var t = new Date();
+            titulo.textContent = "Prueba(" +
+                " Hora: " + (t.getHours() < 10 ? "0" + t.getHours() : t.getHours()) + ":" + (t.getMinutes() < 10 ? "0" + t.getMinutes() : t.getMinutes()) + 
+                " Fecha: " + (t.getDate() < 10 ? "0" + t.getDate() : t.getDate()) + "/" + (t.getMonth()+1 < 10 ? "0" + t.getMonth()+1 : t.getMonth()+1) + "/" + (t.getFullYear() < 10 ? "0" + t.getFullYear() : t.getFullYear()) + ")";
+        }
+    </script>
+</body>
+
+</html>
