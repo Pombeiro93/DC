@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u6e3_billetes_xml_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", inicio);
+
+        var origen = document.createElement("select");
+        origen.id = "origen";
+        var destino = document.createElement("select");
+        destino.id = "destino";
+        origen.addEventListener("change", cargarDestino);
+
+        function inicio() {
+            var xml = new XMLHttpRequest();
+            xml.onreadystatechange = function () {
+                if (this.readyState == 4 && xml.status == 200) {
+                    cargarOrigen(this);
+                }
+            }
+            xml.open("get", "viajes.xml");
+            xml.send();
+        }
+
+        function cargarOrigen(xml) {
+            salidas = xml.responseXML.querySelectorAll("Salida")
+
+            for (let i = 0; i < salidas.length; i++) {
+                var opcion = document.createElement("option");
+                opcion.innerHTML = salidas[i].querySelector("Origen").textContent;
+                opcion.value = salidas[i].querySelector("Origen").textContent;
+                origen.appendChild(opcion);
+            }
+            document.body.appendChild(origen);
+        }
+
+        function cargarDestino() {
+            var valorOrigen = document.querySelector("#origen").value;
+
+            salidas.forEach(element => {
+                var desde = element.querySelector("Origen").innerHTML;
+                if (valorOrigen == desde) {
+                    destino.innerHTML = "";
+                    element.querySelectorAll("Destino").forEach(salida => {
+                        var hasta = document.createElement("option");
+                        hasta.innerHTML = salida.textContent;
+                        hasta.value = salida.textContent;
+                        destino.appendChild(hasta);
+                    });
+                }
+            });
+
+            document.body.appendChild(destino);
+        }
+    </script>
+</body>
+
+</html>

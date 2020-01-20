@@ -1,0 +1,23 @@
+<series>
+    <serie>
+        <titulo>F·R·I·E·N·D·S</titulo>
+        <cadena>NBC</cadena>
+        <director>Gary Halvorson</director>
+        <ano>1994</ano>
+        <terminada>si</terminada>
+    </serie>
+    <serie>
+        <titulo>Aquí no hay quien viva</titulo>
+        <cadena>Antena 3</cadena>
+        <director>Laura Caballero</director>
+        <ano>2003</ano>
+        <terminada>si</terminada>
+    </serie>
+    <serie>
+        <titulo>La que se avecina</titulo>
+        <cadena>Telecinco</cadena>
+        <director>Laura Caballero</director>
+        <ano>2007</ano>
+        <terminada>no</terminada>
+    </serie>
+</series>

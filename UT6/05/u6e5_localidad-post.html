@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u6e5_localidad-post_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", inicio);
+
+        function inicio() {
+            document.querySelector("button").addEventListener("click", enviarCiudad);
+        }
+
+        function enviarCiudad(e) {
+            var ciudad = document.querySelector("input").value;
+            var resultado = document.querySelector("#resultado");
+            var php = new XMLHttpRequest;
+
+            php.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    resultado.innerHTML = this.responseText;
+                    if (resultado.textContent == "si existe") {
+                        resultado.style.color = "green";
+                    } else if (resultado.textContent == "no existe") {
+                        resultado.style.color = "red";
+                    }
+                }
+            }
+            php.open("post", "ciudad.php");
+            php.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            php.send("ciudad=" + ciudad);
+        }
+
+    </script>
+    <input type="text">
+    <button>Comprobar</button>
+    <div id="resultado"></div>
+
+</body>
+
+</html>

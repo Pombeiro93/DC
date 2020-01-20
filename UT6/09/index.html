@@ -1,0 +1,111 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>EXAMEN VIAJES 17-18</title>
+    <style>
+        #formularioCompra {
+            display: none;
+        }
+
+        td,
+        tr {
+            border: solid black 1px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", inicio);
+
+        function inicio() {
+            var json = new XMLHttpRequest;
+            json.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    cargarJson(this);
+                }
+            };
+            json.open("get", "viajes.json");
+            json.send();
+        }
+
+        function cargarJson(json) {
+            var arrayJson = JSON.parse(json.responseText);
+
+            var tabla = document.querySelector("#idTiposViajes");
+
+            arrayJson['viajes'].forEach(viaje => {
+                var fila = document.createElement("tr");
+                fila.addEventListener("click", cambiarColor);
+
+                var columna1 = document.createElement("td");
+                columna1.textContent = viaje['descripcion'];
+
+                var columna2 = document.createElement("td");
+                columna2.textContent = viaje['precio'];
+
+                fila.appendChild(columna1);
+                fila.appendChild(columna2);
+                tabla.appendChild(fila);
+            });
+        }
+
+        function cambiarColor(e) {
+            this.style.color = "green";
+            document.querySelector("#comprar").disabled = false;
+        }
+
+        function mostrarVaijes() {
+            var comprados = new XMLHttpRequest;
+            comprados.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var php = JSON.parse(this.responseText);
+                    console.log(php);
+                }
+            };
+            comprados.open("get", "procesar.php");
+            comprados.send();
+        }
+
+        function cargarFormulario() {
+
+        }
+
+        function devolverViaje() {
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <table id='idTiposViajes'></table>
+        <input type="button" value="Mostar viajes Comprados" id="mostrar" onclick="mostrarVaijes();">
+
+    </div>
+    <br>
+    <div id="idDatosvIAJES">
+        <table id='idViajes'></table>
+
+        <p>
+            <input type="button" value="Comprar" id="comprar" onclick="cargarFormulario();" disabled>
+            <input type="button" value="Devolver Viaje" id="devolver" onclick="devolverViaje();" disabled>
+
+        </p>
+    </div>
+    <div id="formularioCompra"><br>
+        <label>Nombre comprador:</label><input type="text" id="idnombre"><br>
+        <label>Descripción:</label><input type="text" id="idDescripcion" disabled><br>
+        <label>Email:</label><input type="text" id="idEmail"><br>
+        <label>Número de viajes:</label><input type="text" id="idDedicatoria"><br>
+        <label>Precio:</label><input type="text" id="idPrecio" disabled><br>
+        <label>Numero tarjeta:</label><input type="text" id="idnumero"><br>
+        <label>CSV:</label><input type="text" id="idcsv"><br>
+        <button id="idComprar" onclick="ComprarViaje();">Comprar de viaje</button>
+    </div>
+    <div id="todosViajes"></div>
+</body>
+
+</html>

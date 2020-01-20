@@ -1,0 +1,17 @@
+﻿<Estacion>
+	<Salida>
+		<Origen>Madrid</Origen>
+		<Destino>Barcelona</Destino>
+		<Destino>Valencia</Destino>
+		<Destino>Sevilla</Destino>
+	</Salida>
+	<Salida>
+		<Origen>Barcelona</Origen>
+		<Destino>Madrid</Destino>
+		<Destino>Zaragoza</Destino>
+	</Salida>
+	<Salida>
+		<Origen>Valencia</Origen>
+		<Destino>Madrid</Destino>
+	</Salida>
+</Estacion>

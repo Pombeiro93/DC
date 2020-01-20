@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u6e8_json_teatro_David_Palomero</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", cargarContenido);
+
+        function cargarContenido() {
+            var select = document.querySelector("#teatros");
+            select.addEventListener("change", cartelera);
+            var xml = new XMLHttpRequest;
+
+            xml.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var teatros = this.responseXML.querySelectorAll("TEATROS_MADRID");
+                    teatros.forEach(teatro => {
+                        var opcion = document.createElement("option");
+                        opcion.textContent = teatro.querySelector("TEATRO").textContent;
+                        select.appendChild(opcion);
+                    });
+                }
+            }
+            xml.open("get", "teatros.xml");
+            xml.send();
+        }
+
+        function cartelera(e) {
+            var divTabla = document.querySelector("#tabla");
+            var divbotones = document.querySelector("#botones");
+            divTabla.innerHTML = "";
+            var tabla = document.createElement("table");
+            var filaCabecera = crearFila(tabla);
+            crearCelda(filaCabecera, "th", "Titulo");
+            crearCelda(filaCabecera, "th", "Precio");
+            crearCelda(filaCabecera, "th", "Sinopsis");
+            crearCelda(filaCabecera, "th", "Cartel");
+
+
+
+            var opcion = e.target.value;
+            var json = new XMLHttpRequest;
+
+            json.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var obras = JSON.parse(this.responseText)["obras"];
+                    var arrayObras = [];
+                    obras.forEach(obra => {
+                        if (opcion == obra["teatro"]) {
+                            arrayObras.push(obra);
+                        }
+                    });
+                    var filaObra = crearFila(tabla);
+                    crearCelda(filaObra, "td", arrayObras[0]["titulo"]);
+                    crearCelda(filaObra, "td", arrayObras[0]["precio"]);
+                    crearCelda(filaObra, "td", arrayObras[0]["sinopsis"]);
+                    var imagen = document.createElement("img");
+                    imagen.setAttribute("src",arrayObras[0]["imagen"])
+                    crearCelda(filaObra, "td", imagen);
+                    divTabla.appendChild(tabla);
+                }
+            }
+            json.open("get", "cartelera.json");
+            json.send();
+        }
+
+        function botones() {
+            var boton1 = document.createElement("button");
+            boton1.addEventListener("click", primero);
+            var boton2 = document.createElement("button");
+            boton2.addEventListener("click", anterior);
+            var boton3 = document.createElement("button");
+            boton3.addEventListener("click", siguiente);
+            var boto4 = document.createElement("button");
+            boton4.addEventListener("click", ultimo);
+        }
+
+        function crearCelda(fila, tipo, contenido) {
+            var celda = document.createElement(tipo);
+            celda.textContent = contenido;
+            fila.appendChild(celda);
+        }
+
+        function crearFila(tabla) {
+            var fila = document.createElement("tr");
+            tabla.appendChild(fila);
+            return fila;
+        }
+    </script>
+
+    <select name="teatros" id="teatros"></select>
+    <div id="tabla"></div>
+    <div id="botones"></div>
+</body>
+
+</html>

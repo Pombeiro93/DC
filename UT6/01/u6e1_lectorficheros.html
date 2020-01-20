@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u6e1_lectorficheros_David_Palomero</title>
+</head>
+
+<body>
+    <input type="text" name="archivo" id="archivo">
+    <button id="cargar">Mostrar contenido</button><br>
+    <textarea cols="30" rows="10"></textarea>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", cargarUrl);
+        document.querySelector("button").addEventListener("click", cargar);
+
+        function cargarUrl(){
+            document.querySelector("input").value = window.location;
+        }
+
+        function cargar(e) {
+            var areaTexto = document.querySelector("textarea");
+            var input = document.querySelector("input");
+            // Obtener la instancia del objeto XMLHttpRequest
+            if (window.XMLHttpRequest) {
+                peticion_http = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                peticion_http = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            // Asocia una función a los cambios en el estado de readyState
+            peticion_http.onreadystatechange = muestraContenido;
+
+            // Abre la conexión con el servidor
+            peticion_http.open('GET', 'http://localhost/pruebas/DC/'+input.value, true);
+            // Envía la petición al servidor
+            peticion_http.send(null);
+
+            // Función que se llama cuando cambia readyState
+            function muestraContenido() {
+                if (peticion_http.readyState == 4) {
+                    if (peticion_http.status == 200) {
+                        areaTexto.textContent = peticion_http.responseText;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

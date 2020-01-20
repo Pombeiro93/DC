@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u6e2_series_xml_David_Palomero</title>
+    <style>
+        td:nth-of-type(1) {
+            font-weight: bold;
+        }
+
+        td:nth-of-type(2) {
+            font-weight: bold;
+        }
+
+        td:nth-of-type(3) {
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        img {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tabla"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", inicio);
+
+        function inicio() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    cargarXML(this);
+                } else if (this.status == 404) {
+                    console.log("El archivo no existe");
+                }
+            };
+            xhr.open("GET", "series.xml");
+            xhr.send();
+        }
+
+        function cargarXML(xml) {
+            var tabla = document.createElement("table");
+            var fila = crearFila(tabla);
+            crearCelda(fila, "th", "titulo");
+            crearCelda(fila, "th", "cadena");
+            crearCelda(fila, "th", "director");
+            crearCelda(fila, "th", "año");
+            crearCelda(fila, "th", "terminada");
+
+            var docXML = xml.responseXML;
+            var series = docXML.getElementsByTagName("serie");
+
+            for (let i = 0; i < series.length; i++) {
+                fila = crearFila(tabla);
+                crearCelda(fila, "td", series[i].querySelector("titulo").textContent);
+                crearCelda(fila, "td", series[i].querySelector("cadena").textContent);
+                crearCelda(fila, "td", series[i].querySelector("director").textContent);
+                if (series[i].querySelector("ano").textContent < 2000) {
+                    crearCelda(fila, "td", series[i].querySelector("ano").textContent);
+                } else {
+                    crearCelda(fila, "td", series[i].querySelector("ano").textContent);
+                }
+                if (series[i].querySelector("terminada").textContent == "si") {
+                    crearCelda(fila, "td", "<img src='tik.png'/>")
+                } else {
+                    crearCelda(fila, "td", "<img src='cruz.png'/>")
+                }
+
+            }
+            document.querySelector("#tabla").appendChild(tabla);
+        }
+
+        function crearCelda(fila, tipo, contenido) {
+            var celda = document.createElement(tipo);
+            celda.textContent = contenido;
+            fila.appendChild(celda);
+        }
+
+        function crearFila(tabla) {
+            var fila = document.createElement("tr");
+            tabla.appendChild(fila);
+            return fila;
+        }
+    </script>
+</body>
+
+</html>
