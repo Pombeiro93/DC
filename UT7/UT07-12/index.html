@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Ejer12</title>
+</head>
+
+<body>
+    <div class="parrafos">
+        <p>Pipo es un buen perro.</p>
+        <p>Do you know the way?</p>
+        <p>El poder del ganso.</p>
+        <p>Tu que eres informatico, arreglame la lavadora.</p>
+    </div>
+    <script>
+
+        var apartado1 = [0, 1, 2, 3, 4, 5, 6];
+        console.log(apartado1);
+
+        var apartado2 = [];
+        $.each(apartado1, function(index, valor) {
+            apartado2.push(valor*3);
+        });
+        console.log(apartado2);
+        
+        var apartado3 = [];
+        $.map(apartado1, function(valor, index) {
+            apartado3.push(valor * 4);
+        });
+        console.log(apartado3);
+
+        var apartado4 = [];
+        $.merge($.merge($.merge(apartado4, apartado1), apartado2), apartado3);
+        console.log(apartado4);
+
+        console.log($("p").length);
+
+        console.log($("p").get(2).innerHTML);
+
+        $.makeArray($("p"));
+
+    </script>
+</body>
+
+</html>

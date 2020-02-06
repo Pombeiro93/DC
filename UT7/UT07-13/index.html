@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="../UT07-07-08-09-10-11/libs/jquery.js"></script> -->
+    <title>Ejercicio 13</title>
+    <style>
+        /* Clases */
+        .rojo {
+            background-color: #F5A9BC;
+        }
+
+        .azul {
+            background-color: #A9BCF5;
+        }
+
+        .negrita {
+            font-weight: bold;
+        }
+
+        table {
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button>Borde sencillo</button>
+    <button>Encabezado superior borde doble</button>
+    <button>Encabezado inferior borde superior</button>
+    <button>Pares.rojo</button>
+    <button>Impares.azul</button>
+    <button>Encabezado.negrita</button>
+    <button>Aumentar alto celdas</button>
+    <button>Ocultar fila 5</button>
+    <button>Asignar color</button>
+    <table>
+        <tr>
+            <th>blueviolet</th>
+            <th>violeta</th>
+        </tr>
+        <tr>
+            <td>Chartreuse</td>
+            <td>lima</td>
+        </tr>
+        <tr>
+            <td>Crimson</td>
+            <td>carmesi</td>
+        </tr>
+        <tr>
+            <td>Cyan</td>
+            <td>cyan</td>
+        </tr>
+        <tr>
+            <td>DarkMagenta</td>
+            <td>rosa oscuro</td>
+        </tr>
+        <tr>
+            <td>DarkOrange</td>
+            <td>naranja oscuro</td>
+        </tr>
+        <tr>
+            <td>DarkSalmon</td>
+            <td>salmon oscuro</td>
+        </tr>
+        <tr>
+            <td>DarkOliveGreen</td>
+            <td>oliva oscuro</td>
+        </tr>
+        <tr>
+            <td>DeepPink</td>
+            <td>rosa chillon</td>
+        </tr>
+        <tr>
+            <th>DarkTurquoise</th>
+            <th>turquesa oscuro</th>
+        </tr>
+    </table>
+
+    <script>
+        /*  
+    13. MODIFICAR UNA TABLA
+        Crea un archivo HTML que tenga una tabla con 10 filas y 2 columnas.
+        La primera y la última fila serán filas con celdas de tipo encabezado( < th > ).
+        
+        En la primera columna de la tabla, estará el nombre de un color CSS(ej.yellow, red, …).
+        En la segunda columna, el texto que quieras.
+        Crea un CSS con las siguientes reglas:
+            .rojo: permite modificar el fondo del elemento a color #F5A9BC.
+            .azul: permite modificar el fondo del elemento a color #A9BCF5.
+            .negrita: permite modificar el tipo de letra a negrita(bold).
+            asignar el estilo border - collapse = collapse al <table > (más info sobre border - collapse:
+                http: //www.mclibre.org/consultar/amaya/css/css-tablas-modos-bordes.html)
+        Crea unos botones en la parte inferior del documento HTML que permitan realizar las siguientes operaciones con jQuery:
+            Asignar a todas las filas de la tabla un borde sencillo
+            Asignar a las filas de encabezado de la parte superior un borde doble
+            Asignar a las filas de encabezado de la parte inferior solo borde superior.
+                El resto de los bordes no se verán.
+            Asignar a las celdas pares la clase .rojo
+            Asignar a las celdas impares la clase .azul
+            Asignar a las celdas de encabezado la clase .negrita
+            Aumentar el alto de las celdas de encabezado para que sea diferente del predeterminado
+            Ocultar la fila 5.
+            Asignar a cada fila el color indicado en el texto de la primera columna de dicha fila
+ */
+        $("button").each(function (index) {
+
+            switch ($(this).html()) {
+                case "Borde sencillo":
+                    $(this).click(function () {
+                        $("tr").css({
+                            border: "solid 1px black"
+                        })
+                    });
+                    break;
+                case "Encabezado superior borde doble":
+                    $(this).click(function () {
+                        $("tr").first().css({
+                            border: "3px solid green",
+                            outline: "2px solid black"
+                        });
+                    });
+                    break;
+                case "Encabezado inferior borde superior":
+                    $(this).click(function () {
+                        $("tr").last().css({
+                            borderTop: "solid 1px black",
+                            borderLeft: "none",
+                            borderRight: "none",
+                            borderBottom: "none"
+                        });
+
+                    });
+                    break;
+                case "Pares.rojo":
+                    $(this).click(function () {
+                        $("tr").each(function(index, elem) {
+                            if ((index + 1) % 2 == 0 ) {
+                                $(elem).addClass("rojo");
+                            }
+                        });
+                    });
+                    break;
+                case "Impares.azul":
+                    $(this).click(function () {
+                        $("tr").each(function(index, elem) {
+                            if ((index + 1) % 2 != 0 ) {
+                                $(elem).addClass("azul");
+                            }
+                        });
+                    });
+                    break;
+                case "Encabezado.negrita":
+                    $(this).click(function () {
+                        $("th").addClass("negrita");
+                    });
+                    break;
+                case "Aumentar alto celdas":
+                    $(this).click(function () {
+                        $("th").css({
+                            height: "30px"
+                        });
+                    });
+                    break;
+                case "Ocultar fila 5":
+                    $(this).click(function () {
+                        $("tr:nth-of-type(5)").hide("slow");
+                    });
+                    break;
+                case "Asignar color":
+                    $(this).click(function () {
+                        $("tr").each(function(index, elem) {
+                            var color = $(this).children().first().html();
+                            $(this).css({
+                                backgroundColor: color
+                            });
+                        });
+                    });
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>

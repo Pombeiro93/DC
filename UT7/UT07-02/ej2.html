@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Probando eventos de jQuery</title>
+	<meta charset="UTF-8">
+	<style>
+		img {
+			max-width: 100%;
+		}
+
+		div#header {
+			background-color: gray;
+			text-align: center;
+		}
+
+		div#wrapper {
+			max-width: 800px;
+			margin: 0 auto;
+			overflow: auto;
+		}
+
+		div#izquierda,
+		div#centro,
+		div#derecha {
+			padding: 0 0 0 3%;
+			margin: 0;
+			float: left;
+		}
+
+		div#izquierda {
+			width: 30%;
+		}
+
+		div#centro {
+			width: 30%;
+		}
+
+		div#derecha {
+			width: 30%;
+		}
+
+		div#footer {
+			border-top: gray solid 1px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+	<div id="header">
+		<h1>Probando los selectores jQuery</h1>
+	</div>
+	<div id="wrapper">
+		<div id="izquierda">
+			<p><a href="#"><img src="imagenes/anchovies.jpg" alt="" Prueba los eventos click(), dblclik(), mouseover() y
+						mouseleave()"" title="Prueba los eventos click(), dblclik(), mouseover() y mouseleave()"></a>
+			</p>
+			<p class="msg">En este párrafo se verán los eventos que se están produciendo.</p>
+		</div>
+		<div id="centro">
+			<p><a href="#"><img src="imagenes/anchovies.jpg" alt="" Prueba los eventos mousedown(), mouseup() y
+						hover()"" title="Prueba los eventos  mousedown(), mouseup() y hover()"></a></p>
+			<p class="msg">En este párrafo se verán los eventos que se están produciendo.</p>
+		</div>
+		<div id="derecha">
+			<p><input type="text" size="10em"></p>
+			<p class="msg">En este párrafo se verán los eventos que se están produciendo.</p>
+		</div>
+	</div>
+	<div id="footer">
+		<p>&copy;2015</p>
+	</div>
+
+	<script>
+		//izquierda
+		$("#izquierda img").click(() => {
+			$("#izquierda .msg").text("click");
+		});
+		$("#izquierda img").dblclick(() => {
+			$("#izquierda .msg").text("doble click");
+		});
+		$("#izquierda img").mouseenter(() => {
+			$("#izquierda .msg").text("mouse enter");
+		});
+		$("#izquierda img").mouseleave(() => {
+			$("#izquierda .msg").text("mouse leave");
+		});
+
+		//centro
+		$("#centro img").mousedown(() => {
+			$("#centro .msg").text("mouse down");
+		});
+		$("#centro img").mouseup(() => {
+			$("#centro .msg").text("mouse up");
+		});
+		$("#centro img").hover(() => {
+			$("#centro .msg").text("hover");
+		});
+
+		//derecha un solo selector
+		$("#derecha input").focus(() => {
+			$("#derecha .msg").text("focus");
+		}).blur(() => {
+			$("#derecha .msg").text("blur");
+		});
+	</script>
+
+</body>
+
+</html>
